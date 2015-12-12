@@ -8,6 +8,7 @@ package penjualantoko;
  *
  * @author Tika
  */
+import java.io.File;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,15 +23,22 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class Main extends javax.swing.JFrame {
 public Connection conn;
    public Statement cn;
+JasperReport report ;
+JasperPrint print ;
 
+JasperDesign desain;
     /**
      * Creates new form Main
      */
@@ -127,7 +135,12 @@ public Connection conn;
             }
         });
 
-        jButton6.setText("Laporan Stok Barang");
+        jButton6.setText("Laporan data barang");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,9 +212,39 @@ pelanggan.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-     // TODO add your handling code here:
+ callreport();
     }//GEN-LAST:event_jButton5ActionPerformed
+private void callreport() {
+        try { 
+        koneksi();
+        String NamaFile = "C:/Users/Tika/Documents/NetBeansProjects/Penjualantoko/report/reportpenjualan.jasper";
+      
+        HashMap param = new HashMap();
+            param.clear();      
+            JasperPrint JPrint = JasperFillManager.fillReport(NamaFile, param, conn);
+            JasperViewer.viewReport(JPrint);
+    }
+    catch(Exception ex){
+            System.out.println(ex);
+        }    // TODO        // TODO add your handling code here:
 
+    }
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+ callreport1();
+    }//GEN-LAST:event_jButton6ActionPerformed
+  private void callreport1() {
+        try {
+            koneksi();
+            HashMap param = new HashMap();
+          String NamaFile = "C:/Users/Tika/Documents/NetBeansProjects/Penjualantoko/report/reportbarang.jasper";
+            ClassLoader cl = getClass().getClassLoader();
+           param.clear();      
+            JasperPrint JPrint = JasperFillManager.fillReport(NamaFile, param, conn);
+            JasperViewer.viewReport(JPrint);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -249,6 +292,4 @@ pelanggan.setVisible(true);
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
-
-
-
+ 

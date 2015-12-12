@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="struk1" language="groovy" pageWidth="350" pageHeight="500" columnWidth="310" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[SELECT
+     transaksi.`kodebarang` AS transaksi_kodebarang,
+     transaksi.`nama_barang` AS transaksi_nama_barang,
+     transaksi.`hargajual` AS transaksi_hargajual,
+     transaksi.`qty` AS transaksi_qty,
+     transaksi.`jumlah` AS transaksi_jumlah,
+     struk.`no_struk` AS struk_no_struk,
+     struk.`kode` AS struk_kode,
+     struk.`nama` AS struk_nama,
+     struk.`NIK` AS struk_NIK,
+     struk.`namalngkp` AS struk_namalngkp,
+     struk.`bayar` AS struk_bayar,
+     struk.`kembalian` AS struk_kembalian
+FROM
+     `transaksi` transaksi,
+     `struk` struk]]>
+	</queryString>
+	<field name="transaksi_kodebarang" class="java.lang.String"/>
+	<field name="transaksi_nama_barang" class="java.lang.String"/>
+	<field name="transaksi_hargajual" class="java.lang.Integer"/>
+	<field name="transaksi_qty" class="java.lang.String"/>
+	<field name="transaksi_jumlah" class="java.lang.Integer"/>
+	<field name="struk_no_struk" class="java.lang.Integer"/>
+	<field name="struk_kode" class="java.lang.String"/>
+	<field name="struk_nama" class="java.lang.String"/>
+	<field name="struk_NIK" class="java.lang.String"/>
+	<field name="struk_namalngkp" class="java.lang.String"/>
+	<field name="struk_bayar" class="java.lang.Integer"/>
+	<field name="struk_kembalian" class="java.lang.Integer"/>
+	<variable name="jumlah" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{transaksi_jumlah}]]></variableExpression>
+	</variable>
+	<group name="tanggal">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<group name="no_struk">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="94" y="23" width="75" height="18"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Toko Fadilah ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="30" y="49" width="258" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Dusun Karang Malang Desa Anjatan Kabupaten Indramayu No : 8]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="76" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="310" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="64" y="19" width="30" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{struk_no_struk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="36" width="43" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{struk_kode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="35" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{struk_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="55" width="46" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{struk_NIK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="55" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{struk_namalngkp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="35" width="61" height="18"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Pelanggan ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="0" y="53" width="61" height="18"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Karyawan ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="0" y="20" width="61" height="18"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[No.Struk]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="310" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="110" y="0" width="47" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{transaksi_hargajual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="169" y="0" width="68" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{transaksi_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="62" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{transaksi_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="64" y="0" width="45" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{transaksi_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="0" y="1" width="49" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{transaksi_kodebarang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="69" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="310" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="215" y="4" width="73" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="140" y="4" width="75" height="18"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Grand Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="215" y="20" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{struk_bayar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="140" y="22" width="75" height="18"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Bayar]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="215" y="38" width="73" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{struk_kembalian}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="140" y="40" width="75" height="18"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Kembalian]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="208" height="15"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Terima Kasih Atas Kunjungan Anda]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

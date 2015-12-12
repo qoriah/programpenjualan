@@ -301,9 +301,7 @@ public Connection conn;
         } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, "Proses penyimpanan gagal/koneksi gagal..");
             System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null,"kode barang : "+jTextField1.getText()+" Sudah Terpakai ");
-            System.out.println(e.getMessage());
-            bersih();
+          
         }
              // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
