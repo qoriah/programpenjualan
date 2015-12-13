@@ -69,7 +69,7 @@ public Connection conn;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
+        cari = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         date = new com.toedter.calendar.JDateChooser();
 
@@ -193,9 +193,9 @@ public Connection conn;
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                cariActionPerformed(evt);
             }
         });
 
@@ -243,7 +243,7 @@ public Connection conn;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cari, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -288,7 +288,7 @@ public Connection conn;
                             .addComponent(jButton3)
                             .addComponent(jButton4)
                             .addComponent(jButton5)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
@@ -307,7 +307,7 @@ public Connection conn;
        
         try{
             koneksi();
-            String sql="Select * from databarang  order by kodebarang asc";
+            String sql="Select * from databarang order by kodebarang asc";
             Statement stat = conn.createStatement();
             ResultSet rs=stat.executeQuery(sql);
             while (rs.next())
@@ -329,16 +329,16 @@ public Connection conn;
     public void bersih(){
         date.setDateFormatString("");
         kodebarang.setText("");
-         namabarang.setText("");
+        namabarang.setText("");
         hargabeli.setText("");
-          hargajual.setText("");
-            qty.setText("");
+        hargajual.setText("");
+        qty.setText("");
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
          try{
             koneksi();
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-              String tanggal = format.format(date.getDate());
+            String tanggal = format.format(date.getDate());
             String sql="Insert into databarang values('"+date.getDate()+"','"+kodebarang.getText()+"','"+namabarang.getText()+"','"+hargabeli.getText()+"','"+hargajual.getText()+"','"+qty.getText()+"')";
             cn.executeUpdate(sql);
             conn.close();
@@ -422,9 +422,9 @@ public Connection conn;
         // TODO add your handling code here:
     }//GEN-LAST:event_qtyActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_cariActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 DefaultTableModel tabel = new DefaultTableModel();
@@ -434,10 +434,11 @@ DefaultTableModel tabel = new DefaultTableModel();
  tabel.addColumn("hargabeli");
  tabel.addColumn("hargajual");
  tabel.addColumn("qty");
+ 
  try {
       koneksi();
-        String sql = "SELECT * FROM databarang where nama_barang like'%"+namabarang.getText()+ "%'";
-  Statement stmt = conn.createStatement();
+       String sql = "SELECT * FROM databarang where nama_barang like'%"+cari.getText()+ "%'";
+ Statement stmt = conn.createStatement();
        ResultSet r = stmt.executeQuery(sql);
         while (r.next()){
             tabel.addRow(new Object[]{
@@ -524,6 +525,7 @@ catch (Exception e){
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cari;
     private com.toedter.calendar.JDateChooser date;
     private javax.swing.JTextField hargabeli;
     private javax.swing.JTextField hargajual;
@@ -542,7 +544,6 @@ catch (Exception e){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField kodebarang;
     private javax.swing.JTextField namabarang;
     private javax.swing.JTextField qty;

@@ -5,12 +5,6 @@
 package penjualantoko;
 
 import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -18,35 +12,40 @@ import static org.junit.Assert.*;
  */
 public class MainTest extends TestCase {
     
-    public MainTest(String testName) {
+   public MainTest(String testName) {
         super(testName);
+
     }
     
-    @BeforeClass
-    public static void setUpClass() {
+      @Override
+    protected void setUp() throws Exception {
+        super.setUp();
     }
+     @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    } 
+/**
+     * Test of koneksi method, of class Main.
+     */
     
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+    public void testKoneksi() {
+        System.out.println("koneksi");
+        Main instance = new Main();
+        instance.koneksi();
+        // TODO review the generated test code and remove the default call to fail.
+       
     }
 
     /**
      * Test of main method, of class Main.
      */
-    @Test
+    
     public void testMain() {
         System.out.println("main");
         String[] args = null;
         Main.main(args);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 }

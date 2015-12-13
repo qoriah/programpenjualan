@@ -3,62 +3,80 @@
  * and open the template in the editor.
  */
 package penjualantoko;
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.TestCase;
-import javax.swing.JFrame;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+
 
 /**
  *
  * @author Tika
  */
-public class DataPelangganTest extends TestCase{
+public class DataPelangganTest extends TestCase {
     
     public DataPelangganTest(String testName) {
-         super(testName);
+        super(testName);
+
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
     }
+     @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }  /**
+     * Test of koneksi method, of class DataPelanggan.
+     */
+   
+    public void testKoneksi() throws SQLException {
+        System.out.println("koneksi");
+        DataPelanggan instance = new DataPelanggan();
+        instance.koneksi();
+        // TODO review the generated test code and remove the default call to fail.
     
-    @AfterClass
-    public static void tearDownClass() {
     }
-    
-    @Before
-    public void setUp() {
+
+    /**
+     * Test of tampildata method, of class DataPelanggan.
+     */
+   
+    public void testTampildata() throws SQLException, SQLException {
+        System.out.println("tampildata");
+        DataPelanggan instance = new DataPelanggan();
+        instance.tampildata();
+        // TODO review the generated test code and remove the default call to fail.
+      
     }
-    
-    @After
-    public void tearDown() {
+
+    /**
+     * Test of bersih method, of class DataPelanggan.
+     */
+ 
+    public void testBersih() throws SQLException, SQLException {
+        System.out.println("bersih");
+        DataPelanggan instance = null;
+        try {
+            instance = new DataPelanggan();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataPelangganTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        instance.bersih();
+        // TODO review the generated test code and remove the default call to fail.
+     
     }
 
     /**
      * Test of main method, of class DataPelanggan.
      */
-    
+   
     public void testMain() {
         System.out.println("main");
         String[] args = null;
         DataPelanggan.main(args);
         // TODO review the generated test code and remove the default call to fail.
-       
-    }
-
-    /**
-     * Test of settocenter method, of class DataPelanggan.
-     */
-    
-    public void testSettocenter() {
-        System.out.println("settocenter");
-        JFrame tambahpemasukan = null;
-        DataPelanggan.settocenter(tambahpemasukan);
-        // TODO review the generated test code and remove the default call to fail.
-       
+     
     }
 }

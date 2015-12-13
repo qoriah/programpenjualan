@@ -100,6 +100,7 @@ JasperDesign desain;
                 .addComponent(jLabel1))
         );
 
+        jButton1.setBackground(new java.awt.Color(0, 204, 255));
         jButton1.setLabel("Entry Data Barang");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +108,7 @@ JasperDesign desain;
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(0, 204, 255));
         jButton2.setLabel("Entry Data Karyawan");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +116,7 @@ JasperDesign desain;
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(0, 204, 255));
         jButton3.setLabel("Entry Data Pelanggan");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,6 +124,7 @@ JasperDesign desain;
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(0, 204, 255));
         jButton4.setText("Transaksi Penjualan");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,13 +132,15 @@ JasperDesign desain;
             }
         });
 
-        jButton5.setText("Laporan Pejualan");
+        jButton5.setBackground(new java.awt.Color(0, 204, 255));
+        jButton5.setText("Laporan penjualan");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
+        jButton6.setBackground(new java.awt.Color(0, 204, 255));
         jButton6.setText("Laporan data barang");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,17 +155,15 @@ JasperDesign desain;
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(82, 82, 82)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -186,18 +190,21 @@ JasperDesign desain;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 TransaksiPenjualan penjualan = new TransaksiPenjualan ();
-penjualan.setVisible(true);// TODO add your handling code here:
+penjualan.setVisible(true);
+this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 Databarang barang = new Databarang();
 barang.setVisible(true);
+this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 Datakaryawan karyawan = new Datakaryawan ();
-karyawan.setVisible(true);// TODO add your handling code here:
+karyawan.setVisible(true);
+this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -208,11 +215,14 @@ DataPelanggan pelanggan = null;
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 pelanggan.setVisible(true);
-        // TODO add your handling code here:
+   this.dispose();     // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
  callreport();
+ Main Menuutama = new Main ();
+ Menuutama.setVisible(true);  
+ this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 private void callreport() {
         try { 
@@ -231,6 +241,10 @@ private void callreport() {
     }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
  callreport1();
+ this.dispose();
+ Main Menuutama = new Main ();
+ Menuutama.setVisible(true);  
+ this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
   private void callreport1() {
         try {

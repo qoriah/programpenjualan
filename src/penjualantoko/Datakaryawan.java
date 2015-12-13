@@ -67,7 +67,7 @@ public Connection conn;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jenis = new javax.swing.JComboBox();
-        jTextField4 = new javax.swing.JTextField();
+        cari = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -171,9 +171,9 @@ public Connection conn;
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        cari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                cariActionPerformed(evt);
             }
         });
 
@@ -235,7 +235,7 @@ public Connection conn;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cari, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -275,7 +275,7 @@ public Connection conn;
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                 .addGap(68, 68, 68))
@@ -314,7 +314,7 @@ public void tampildata(){
         NIK.setText("");
          namalngkp.setText("");
         alamat.setText("");
-          jTextField4.setText("");
+          cari.setText("");
           
     }
 
@@ -401,9 +401,9 @@ public void tampildata(){
     
     }//GEN-LAST:event_jTable1MousePressed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cariActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_cariActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
  DefaultTableModel tabel = new DefaultTableModel();
@@ -413,7 +413,7 @@ public void tampildata(){
  tabel.addColumn("jenis");
  try {
      koneksi();
-        String sql = "SELECT * FROM karyawan where namalngkp like'%"+namalngkp.getText()+ "%'";
+        String sql = "SELECT * FROM karyawan where namalngkp like'%"+cari.getText()+ "%'";
   Statement stmt = conn.createStatement();
        ResultSet r = stmt.executeQuery(sql);
         while (r.next()){
@@ -493,6 +493,7 @@ int table=jTable1.getSelectedRow();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NIK;
     private javax.swing.JTextField alamat;
+    private javax.swing.JTextField cari;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -507,7 +508,6 @@ int table=jTable1.getSelectedRow();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JComboBox jenis;
     private javax.swing.JTextField namalngkp;
     // End of variables declaration//GEN-END:variables

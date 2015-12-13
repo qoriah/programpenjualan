@@ -23,8 +23,8 @@ FROM
 	<field name="transaksi2_A_hargajual" class="java.lang.Integer"/>
 	<field name="transaksi2_A_qty" class="java.lang.String"/>
 	<field name="transaksi2_A_jumlah" class="java.lang.Integer"/>
-	<variable name="transaksi2_A_jumlah" class="java.lang.String" calculation="Sum">
-		<variableExpression><![CDATA[$V{transaksi2_A_jumlah}]]></variableExpression>
+	<variable name="transaksijumlah" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{transaksi2_A_jumlah}]]></variableExpression>
 	</variable>
 	<background>
 		<band splitType="Stretch"/>
@@ -137,11 +137,6 @@ FROM
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
-			<textField>
-				<reportElement x="444" y="4" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$V{transaksi2_A_jumlah}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement style="Column header" x="333" y="4" width="111" height="20"/>
 				<textElement/>
@@ -152,6 +147,11 @@ FROM
 				<textElement/>
 				<text><![CDATA[Pemilik Toko]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="444" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{transaksijumlah}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnFooter>
 	<pageFooter>

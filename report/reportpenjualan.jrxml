@@ -23,7 +23,7 @@ FROM
 	<field name="transaksi2_A_hargajual" class="java.lang.Integer"/>
 	<field name="transaksi2_A_qty" class="java.lang.String"/>
 	<field name="transaksi2_A_jumlah" class="java.lang.Integer"/>
-	<variable name="transaksi2_A_jumlah" class="java.lang.String" calculation="Sum">
+	<variable name="transaksijumlah" class="java.lang.Integer" calculation="Sum">
 		<variableExpression><![CDATA[$F{transaksi2_A_jumlah}]]></variableExpression>
 	</variable>
 	<background>
@@ -150,7 +150,7 @@ FROM
 			<textField>
 				<reportElement x="444" y="4" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$V{transaksi2_A_jumlah}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$V{transaksijumlah}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnFooter>
