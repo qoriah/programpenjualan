@@ -15,7 +15,8 @@
      databarang.`nama_barang` AS databarang_nama_barang,
      databarang.`hargajual` AS databarang_hargajual,
      databarang.`hargabeli` AS databarang_hargabeli,
-     databarang.`qty` AS databarang_qty
+     databarang.`qty` AS databarang_qty,
+     databarang.`satuan` AS databarang_satuan
 FROM
      `databarang` databarang]]>
 	</queryString>
@@ -25,12 +26,14 @@ FROM
 	<field name="hargabeli" class="java.lang.Integer"/>
 	<field name="hargajual" class="java.lang.Integer"/>
 	<field name="qty" class="java.lang.String"/>
+	<field name="satuan" class="java.lang.String"/>
 	<field name="databarang_tanggalmasuk" class="java.lang.String"/>
 	<field name="databarang_kodebarang" class="java.lang.String"/>
 	<field name="databarang_nama_barang" class="java.lang.String"/>
 	<field name="databarang_hargajual" class="java.lang.Integer"/>
 	<field name="databarang_hargabeli" class="java.lang.Integer"/>
 	<field name="databarang_qty" class="java.lang.String"/>
+	<field name="databarang_satuan" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -64,41 +67,39 @@ FROM
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement style="Column header" x="96" y="35" width="111" height="15"/>
+				<reportElement style="Column header" x="86" y="36" width="102" height="15"/>
 				<textElement/>
 				<text><![CDATA[kodebarang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="207" y="35" width="111" height="15"/>
+				<reportElement style="Column header" x="188" y="36" width="111" height="15"/>
 				<textElement/>
 				<text><![CDATA[nama_barang]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="319" y="35" width="73" height="15"/>
+				<reportElement style="Column header" x="299" y="36" width="73" height="15"/>
 				<textElement/>
 				<text><![CDATA[hargabeli]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="392" y="35" width="88" height="15"/>
+				<reportElement style="Column header" x="372" y="35" width="88" height="15"/>
 				<textElement/>
 				<text><![CDATA[hargajual]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="480" y="35" width="75" height="15"/>
+				<reportElement style="Column header" x="460" y="35" width="50" height="15"/>
 				<textElement/>
 				<text><![CDATA[qty]]></text>
 			</staticText>
-			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement style="Column header" x="0" y="15" width="197" height="20"/>
-				<textElement>
-					<font size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement style="Column header" x="0" y="35" width="96" height="15"/>
+				<reportElement style="Column header" x="0" y="35" width="86" height="15"/>
 				<textElement/>
 				<text><![CDATA[Tanggal Masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="505" y="36" width="50" height="15"/>
+				<textElement/>
+				<text><![CDATA[Satuan]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -111,34 +112,39 @@ FROM
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement style="Detail" x="96" y="0" width="111" height="15"/>
+				<reportElement style="Detail" x="86" y="0" width="102" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{kodebarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="207" y="0" width="111" height="15"/>
+				<reportElement style="Detail" x="188" y="0" width="111" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{nama_barang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="319" y="0" width="75" height="15"/>
+				<reportElement style="Detail" x="299" y="0" width="75" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{hargabeli}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="392" y="0" width="81" height="15"/>
+				<reportElement style="Detail" x="374" y="0" width="81" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{hargajual}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="Detail" x="480" y="0" width="75" height="15"/>
+				<reportElement style="Detail" x="460" y="0" width="50" height="15"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="0" width="96" height="20"/>
+				<reportElement x="0" y="0" width="86" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{tanggalmasuk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="45" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{databarang_satuan}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

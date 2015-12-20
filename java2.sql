@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2015 at 03:23 PM
+-- Generation Time: Dec 15, 2015 at 07:59 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `databarang` (
   `hargabeli` int(30) NOT NULL,
   `hargajual` int(30) NOT NULL,
   `qty` varchar(12) NOT NULL,
+  `satuan` varchar(10) NOT NULL,
   PRIMARY KEY (`kodebarang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -40,12 +41,23 @@ CREATE TABLE IF NOT EXISTS `databarang` (
 -- Dumping data for table `databarang`
 --
 
-INSERT INTO `databarang` (`tanggalmasuk`, `kodebarang`, `nama_barang`, `hargabeli`, `hargajual`, `qty`) VALUES
-('Sun Dec 13 20:02:06 ICT 2015', '1123102', 'roti kering', 5000, 5500, '80'),
-('Sun Dec 13 15:35:42 ICT 2015', '12201', 'karet', 2000, 9000, '860'),
-('Sun Dec 13 15:35:42 ICT 2015', '1220133', 'saus abc', 4000, 4500, '50'),
-('Sun Dec 13 20:02:06 ICT 2015', '129001', 'santan kara', 5000, 5500, '80'),
-('Mon Dec 14 00:00:00 ICT 2015', '129039', 'sambal terasi ABC ', 6700, 7000, '843');
+INSERT INTO `databarang` (`tanggalmasuk`, `kodebarang`, `nama_barang`, `hargabeli`, `hargajual`, `qty`, `satuan`) VALUES
+('Tue Dec 15 00:00:00 ICT 2015', '1211121', 'sasa mecin', 4000, 4500, '36', 'Biji'),
+('Thu Dec 17 00:00:00 ICT 2015', '122323', 'pentene', 450, 500, '34', 'Sachet'),
+('Mon Dec 14 00:00:00 ICT 2015', '12322', 'kecap ABC', 5000, 5500, '20', 'Biji'),
+('Thu Dec 17 00:00:00 ICT 2015', '123220', 'tipe-x', 2500, 3000, '1', 'Biji'),
+('Tue Dec 15 00:00:00 ICT 2015', '1232231', 'krupuk udang', 7000, 7500, '153', 'Biji'),
+('Wed Dec 16 00:00:00 ICT 2015', '1232232', 'pulpen', 1200, 1500, '20', 'Biji'),
+('Mon Dec 14 00:00:00 ICT 2015', '12332', 'masako', 3000, 3500, '10', 'Pcs'),
+('Thu Dec 17 00:00:00 ICT 2015', '123342', 'bimoli', 230000, 250000, '5', 'Box'),
+('Thu Dec 17 00:00:00 ICT 2015', '134220', 'sandal swallow', 10000, 11000, '20', 'Biji'),
+('Mon Dec 14 00:00:00 ICT 2015', '2312767', 'bagelen roti kering', 5500, 6000, '50', 'Biji'),
+('Tue Dec 15 00:00:00 ICT 2015', '232230', 'taro ciki', 950, 1000, '50', 'Biji'),
+('Mon Dec 14 00:00:00 ICT 2015', '232232', 'kecap ABC', 450, 500, '30', 'Sachet'),
+('Tue Dec 15 00:00:00 ICT 2015', '2332321', 'taro ciki', 40000, 401000, '5', 'Box'),
+('Thu Dec 17 00:00:00 ICT 2015', '23342212', 'pantene shampo', 4500, 5000, '10', 'Biji'),
+('Thu Dec 17 00:00:00 ICT 2015', '5433421', 'bimoli minyak', 14000, 14500, '30', 'Biji'),
+('Thu Dec 17 00:00:00 ICT 2015', '7666545', 'kripik sukun', 6500, 7000, '40', 'Biji');
 
 -- --------------------------------------------------------
 
@@ -110,7 +122,14 @@ CREATE TABLE IF NOT EXISTS `struk` (
   `bayar` int(25) NOT NULL,
   `kembalian` int(25) NOT NULL,
   PRIMARY KEY (`no_struk`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `struk`
+--
+
+INSERT INTO `struk` (`no_struk`, `kode`, `nama`, `NIK`, `namalngkp`, `bayar`, `kembalian`) VALUES
+(2, '2', 'puspita', '1233', 'asep supritatna', 43000, 500);
 
 -- --------------------------------------------------------
 
@@ -119,13 +138,23 @@ CREATE TABLE IF NOT EXISTS `struk` (
 --
 
 CREATE TABLE IF NOT EXISTS `transaksi` (
+  `tanggal` varchar(30) NOT NULL,
   `kodebarang` varchar(12) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `hargajual` int(30) NOT NULL,
   `qty` varchar(15) NOT NULL,
+  `satuan` varchar(10) NOT NULL,
   `jumlah` int(15) NOT NULL,
   PRIMARY KEY (`kodebarang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`tanggal`, `kodebarang`, `nama_barang`, `hargajual`, `qty`, `satuan`, `jumlah`) VALUES
+('Tue Dec 15 13:52:12 ICT 2015', '12322', 'kecap ABC', 5500, '5', 'Biji', 27500),
+('Tue Dec 15 13:52:12 ICT 2015', '1232232', 'pulpen', 1500, '10', 'Biji', 15000);
 
 -- --------------------------------------------------------
 
@@ -134,21 +163,24 @@ CREATE TABLE IF NOT EXISTS `transaksi` (
 --
 
 CREATE TABLE IF NOT EXISTS `transaksi2` (
+  `tanggal` varchar(30) NOT NULL,
   `kodebarang` varchar(12) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `hargajual` int(30) NOT NULL,
   `qty` varchar(15) NOT NULL,
-  `jumlah` int(15) NOT NULL
+  `satuan` varchar(10) NOT NULL,
+  `jumlah` int(15) NOT NULL,
+  PRIMARY KEY (`kodebarang`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaksi2`
 --
 
-INSERT INTO `transaksi2` (`kodebarang`, `nama_barang`, `hargajual`, `qty`, `jumlah`) VALUES
-('1123102', 'roti kering', 5500, '5', 27500),
-('1123102', 'roti kering', 5500, '5', 27500),
-('12201', 'karet', 9000, '2', 18000);
+INSERT INTO `transaksi2` (`tanggal`, `kodebarang`, `nama_barang`, `hargajual`, `qty`, `satuan`, `jumlah`) VALUES
+('Tue Dec 15 13:02:18 ICT 2015', '1211121', 'sasa mecin', 4500, '4', 'Biji', 18000),
+('Tue Dec 15 13:49:00 ICT 2015', '122323', 'pentene', 500, '6', 'Sachet', 3000),
+('Tue Dec 15 13:11:54 ICT 2015', '1232231', 'krupuk udang', 7500, '7', 'Biji', 52500);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
