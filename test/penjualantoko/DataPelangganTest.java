@@ -8,29 +8,25 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import junit.framework.TestCase;
+import java.util.List;
+import org.junit.Test;
+
 
 
 /**
  *
  * @author Tika
  */
-public class DataPelangganTest extends TestCase {
+public class DataPelangganTest {
     
-    public DataPelangganTest(String testName) {
-        super(testName);
+    public DataPelangganTest() {
+      
 
     }
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-     @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }  /**
+   /**
      * Test of koneksi method, of class DataPelanggan.
      */
-   
+   @Test
     public void testKoneksi() throws SQLException {
         System.out.println("koneksi");
         DataPelanggan instance = new DataPelanggan();
@@ -42,7 +38,7 @@ public class DataPelangganTest extends TestCase {
     /**
      * Test of tampildata method, of class DataPelanggan.
      */
-   
+   @Test
     public void testTampildata() throws SQLException, SQLException {
         System.out.println("tampildata");
         DataPelanggan instance = new DataPelanggan();
@@ -54,7 +50,7 @@ public class DataPelangganTest extends TestCase {
     /**
      * Test of bersih method, of class DataPelanggan.
      */
- 
+ @Test
     public void testBersih() throws SQLException, SQLException {
         System.out.println("bersih");
         DataPelanggan instance = null;
@@ -71,7 +67,8 @@ public class DataPelangganTest extends TestCase {
     /**
      * Test of main method, of class DataPelanggan.
      */
-   
+  
+ @Test
     public void testMain() {
         System.out.println("main");
         String[] args = null;
@@ -80,3 +77,6 @@ public class DataPelangganTest extends TestCase {
      
     }
 }
+
+
+

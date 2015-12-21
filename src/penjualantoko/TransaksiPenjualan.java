@@ -703,7 +703,7 @@ void jComboBox3(){
             String tanggal = format.format(date.getDate());
             int qty = Integer.parseInt(txtqty.getText());
             int stok1 = Integer.parseInt(stok.getText());
-            if  (qty >= stok1 )
+            if  (qty > stok1 )
             {
             JOptionPane.showMessageDialog(null,"qty tidak boleh lebih dari stok");
            

@@ -4,31 +4,27 @@
  */
 package penjualantoko;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.TestCase;
+import java.util.List;
+import org.junit.Test;
 
 /**
  *
  * @author Tika
  */
-public class MainTest extends TestCase {
+public class MainTest  {
     
-   public MainTest(String testName) {
-        super(testName);
+   public MainTest() {
 
     }
     
-      @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-    }
-     @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    } 
 /**
      * Test of koneksi method, of class Main.
      */
-    
+    @Test
     public void testKoneksi() {
         System.out.println("koneksi");
         Main instance = new Main();
@@ -40,7 +36,7 @@ public class MainTest extends TestCase {
     /**
      * Test of main method, of class Main.
      */
-    
+    @Test
     public void testMain() {
         System.out.println("main");
         String[] args = null;
