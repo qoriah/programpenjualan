@@ -1,3 +1,4 @@
 petunjuk program :
 1. form transaksi : isi dulu semua field lalu tekan tombol tambah untuk menambahkan kedalam tabel dan tombol simpan untuk menyimpan ke database dan tombol selesai untuk menyimpan ke database struk 
 jika tidak dilakukan semua maka akan terjadi bag
+2.sesuatu
